@@ -1,0 +1,101 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5; 
+}
+
+.page-container {
+  background-color: #f5f5f5; 
+  padding: 20px;
+  margin-top: 50px; 
+}
+
+.container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.input-container {
+  margin-bottom: 20px; /* Espacio entre el campo de texto y el botón */
+}
+
+#guess-input {
+  width: calc(100% - 22px); /* Ajustar el ancho del campo de entrada para tener en cuenta el borde */
+  padding: 10px;
+  font-size: 18px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#guess-button {
+  display: block;
+  width: 100%; 
+  padding: 10px 0; 
+  font-size: 18px;
+  background-color: #0CBABA;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#guess-button:hover {
+  background-color: #08a1a1;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px; /* Separación entre los cuadros y el botón "Intentar" */
+}
+
+.correct-box {
+  background-color: #6eed6e; /* Verde para letra y posición correctas */
+  padding: 5px;
+  margin: 2px;
+  border-radius: 5px;
+}
+
+.close-box {
+  background-color: #ffff99; /* Amarillo para letra correcta, pero posición incorrecta */
+  padding: 5px;
+  margin: 2px;
+  border-radius: 5px;
+}
+
+.incorrect-box {
+  background-color: #dcdcdc; /* Gris para letra incorrecta */
+  padding: 5px;
+  margin: 2px;
+  border-radius: 5px;
+}
+
+.correct, .close, .incorrect {
+  color: #000; 
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.correct-box, .close-box, .incorrect-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px; 
+  height: 40px; 
+  margin: 2px;
+  border-radius: 5px;
+}
