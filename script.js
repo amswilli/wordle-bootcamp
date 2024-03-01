@@ -1,7 +1,34 @@
-const palabra = generarPalabraAleatoria();
+let palabra = "";
 const intentosMaximos = 6;
 let intentosRestantes = intentosMaximos;
 
+/* Consume la API de manera asincrona */
+
+const API = "https://random-word-api.herokuapp.com/word?length=5&lang=es";
+
+fetch(API)
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error("No se pudo obtener la palabra desde la API.");
+    }
+    return response.json();
+  })
+  .then((body) => {
+    palabra = body[0].toUpperCase();
+    console.log("La palabra a adivinar es:", palabra);
+  })
+  .catch((error) => {
+    console.error(error);
+    // Si falla la API, utilizar palabras aleatorias locales
+    palabra = generarPalabraAleatoria();
+  });
+
+  function generarPalabraAleatoria() {
+    const palabras = ["APPLE", "HURLS", "WINGS", "YOUTH"];
+    return palabras[Math.floor(Math.random() * palabras.length)];
+  }
+
+// Saber si la pagina se cargo correctamente
 window.addEventListener('load', init);
 
 function init() {
@@ -10,18 +37,15 @@ function init() {
   button.addEventListener("click", intentar);
 }
 
-function generarPalabraAleatoria() {
-  const diccionario = ["APPLE", "HURLS", "WINGS", "YOUTH"];
-  return diccionario[Math.floor(Math.random() * diccionario.length)];
-}
 
 function intentar() {
   const intento = leerIntento();
+  //Preguntar si las letras son distintas a 5
   if (intento.length !== 5) {
     alert("Por favor, ingresa exactamente 5 letras.");
     return;
   }
-  console.log("Intento:", intento);
+  console.log("El intento fue:", intento);
   evaluarIntento(intento);
 }
 
@@ -69,3 +93,4 @@ function terminarJuego(mensaje) {
   mensajeResultado.innerHTML = mensaje;
   contenedor.appendChild(mensajeResultado);
 }
+
